@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LearnSpace | Online Courses</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <h1>LearnSpace</h1>
+    <nav>
+      <a href="#courses">Courses</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#account">Account</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Learn something new every day.</h2>
+      <p>Explore courses, test your knowledge and track your progress.</p>
+      <a class="button" href="#courses">Explore courses</a>
+    </section>
+
+    <section id="courses">
+      <h2>Available Courses</h2>
+      <div id="course-list" class="course-grid"></div>
+    </section>
+
+    <section id="quiz">
+      <h2>Knowledge Quiz</h2>
+      <div class="panel">
+        <p>What does CI stand for in DevOps?</p>
+        <label><input type="radio" name="answer" value="A"> Continuous Integration</label>
+        <label><input type="radio" name="answer" value="B"> Code Installation</label>
+        <label><input type="radio" name="answer" value="C"> Container Interface</label>
+        <button id="submit-quiz">Submit Answer</button>
+        <p id="quiz-result"></p>
+      </div>
+    </section>
+
+    <section id="account">
+      <h2>Create an Account</h2>
+      <div class="panel">
+        <input id="username" type="text" placeholder="Username">
+        <input id="password" type="password" placeholder="Password">
+        <button id="register">Register</button>
+        <p id="account-result"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>LearnSpace © 2026 | DevOps LMS Project</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
