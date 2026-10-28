@@ -70,11 +70,10 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           cache-from: type=gha
-          cache-to: type=gha,mode=max
 
       - name: Test LMS Docker container
         run: |
-          docker run -d --name lms-test -p 3000:3000 ${{ steps.meta.outputs.tags }}
+          docker run -d --name lms-test -p 3000:3000 ghcr.io/diannnak06/devops-lab2-lms:${{ github.ref_name }}
           sleep 5
           curl --fail http://localhost:3000/api/courses
           docker stop lms-test
