@@ -62,6 +62,7 @@ jobs:
             type=sha,prefix=
             type=ref,event=branch
 
+
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
@@ -70,6 +71,15 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: Test LMS Docker container
+        run: |
+          docker run -d --name lms-test -p 3000:3000 ${{ steps.meta.outputs.tags }}
+          sleep 5
+          curl --fail http://localhost:3000/api/courses
+          docker stop lms-test
+          docker rm lms-test
+
 
   deploy-staging:
     needs: build
